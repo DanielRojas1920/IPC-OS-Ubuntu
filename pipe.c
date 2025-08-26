@@ -8,7 +8,7 @@ int main() {
 
     pipe(fd);     // crear la tubería
 
-    printf("\n%s, %s\n", fd[0], fd[1]);
+    printf("\n%d, %d\n", fd[0], fd[1]);
 
     if (fork() == 0) {       // aquí entra el HIJO
         close(fd[0]);        // el hijo no lee, así que cierra el extremo de lectura
