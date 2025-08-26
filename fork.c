@@ -9,9 +9,9 @@ int main() {
         printf("Error al intentar duplicar el proceso");
         return 1;
     } else if (pid == 0) {
-        printf("Proceso hijo");
+        printf("\nProceso hijo");
     } else {
-        printf("Proceso padre");
+        printf("\nProceso padre\n");
     }
 
     return 0;
