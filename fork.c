@@ -6,7 +6,7 @@ int main() {
                         //padre desde la ejecución de fork()
 
     if (pid < 0) {
-        printf('Error al intentar duplicar el proceso');
+        printf("Error al intentar duplicar el proceso");
         return 1;
     } else if (pid == 0) {
         printf("Proceso hijo");
