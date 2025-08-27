@@ -4,15 +4,17 @@
 
 int main() {
     int fd[2];               // fd[0] = lectura, fd[1] = escritura
-    char buffer[100];        // donde el padre guardará lo que lee
+    char buffer[100];   // donde el padre guardará lo que lee
 
     pipe(fd);     // crear la tubería
 
-    if (fork() == 0) {  //Hijo
+    if ( == 0) {  //Hijo
         close(fd[0]);      //Se cierra el extremo de lectura
 
         char msg[] = "Mensaje del hijo";
+        char test[] = " Mensaje 2"
         write(fd[1], msg, strlen(msg) + 1);  // Manda el mensaje en el pipe
+        write(fd[1], test, strlen(test) + 1);
         close(fd[1]);        // cierra el extremo de escritura
     } else {                 //Padre
         close(fd[1]);        // Se cierra el extremo de escritura
@@ -21,6 +23,7 @@ int main() {
         printf("Mensaje recibido: %s\n", buffer);
         close(fd[0]);        // cierra el extremo de lectura
     }
+
 
     return 0;
 }
