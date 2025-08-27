@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <sys/wait.h>
 
 int main() {
     int fd[2];               // fd[0] = lectura, fd[1] = escritura
@@ -17,8 +18,8 @@ int main() {
         write(fd[1], msg, strlen(msg));  // Manda el mensaje en el pipe
         write(fd[1], test, strlen(test) + 1);
         close(fd[1]);        // cierra el extremo de escritura
-    } else {
-        wait(NULL);                 //Padre
+    } else { //Padre
+        wait(NULL);                 
         close(fd[1]);        // Se cierra el extremo de escritura
         read(fd[0], buffer, sizeof(buffer)); // lee lo que escribió el hijo
         printf("Mensaje recibido: %s\n", buffer);
