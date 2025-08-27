@@ -23,6 +23,7 @@ int main() {
         read(fd[0], buffer, sizeof(buffer)); // lee lo que escribió el hijo
         read(fd[0], buffer_test, sizeof(buffer_test));
         printf("Mensaje recibido: %s\n", buffer);
+        printf("Mensaje recibido: %s\n", buffer_test);
         close(fd[0]);        // cierra el extremo de lectura
     }
 
