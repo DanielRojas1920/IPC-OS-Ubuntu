@@ -6,7 +6,6 @@
 int main() {
     int fd[2];               // fd[0] = lectura, fd[1] = escritura
     char buffer[100];   // donde el padre guardará lo que lee
-    char buffer_test[100];
 
     pipe(fd);     // crear la tubería
 
