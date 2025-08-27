@@ -13,7 +13,7 @@ int main() {
 
         char msg[] = "Mensaje del hijo";
         char test[] = " Mensaje 2";
-        write(fd[1], msg, strlen(msg) + 1);  // Manda el mensaje en el pipe
+        write(fd[1], msg, strlen(msg));  // Manda el mensaje en el pipe
         write(fd[1], test, strlen(test) + 1);
         close(fd[1]);        // cierra el extremo de escritura
     } else {                 //Padre
