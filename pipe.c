@@ -17,9 +17,9 @@ int main() {
         write(fd[1], msg, strlen(msg));  // Manda el mensaje en el pipe
         write(fd[1], test, strlen(test) + 1);
         close(fd[1]);        // cierra el extremo de escritura
-    } else {                 //Padre
+    } else {
+        wait(NULL);                 //Padre
         close(fd[1]);        // Se cierra el extremo de escritura
-
         read(fd[0], buffer, sizeof(buffer)); // lee lo que escribió el hijo
         printf("Mensaje recibido: %s\n", buffer);
         close(fd[0]);        // cierra el extremo de lectura
